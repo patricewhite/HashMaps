@@ -72,39 +72,17 @@ class HashMap {
 HashMap.MAX_LOAD_RATIO = 0.9;
 HashMap.SIZE_RATIO = 3;
 
-const hm = new HashMap;
+const hm2 = new HashMap;
 
-hm.set({
-  Hobbit: 'Bilbo'
-});
-hm.set({
-  Hobbit: 'Frodo'
-});
-hm.set({
-  Wizard: 'Gandolf'
-});
-hm.set({
-  Human: 'Aragon'
-});
-hm.set({
-  Elf: 'Legolas'
-});
-hm.set({
-  Maiar: 'The Necromancer'
-});
-hm.set({
-  Maiar: 'Sauron'
-});
-hm.set({
-  RingBearer: 'Gollum'
-});
-hm.set({
-  LadyOfLight: 'Galadriel'
-});
-hm.set({
-  HalfElven: 'Arwen'
-});
-hm.set({
-  ShepherdOfTheTrees: 'Treebeard'
-});
-console.log(hm);
+hm2.set('Hobbit', 'Bilbo');
+hm2.set('Hobbit', 'Frodo');
+hm2.set('Wizard', 'Gandolf');
+hm2.set('Human', 'Aragon');
+hm2.set('Elf', 'Legolas');
+hm2.set('Maiar', 'The Necromancer');
+hm2.set('Maiar', 'Sauron');
+hm2.set('RingBearer', 'Gollum');
+hm2.set('LadyOfLight', 'Galadriel');
+hm2.set('HalfElven', 'Arwen');
+hm2.set('ShepherdOfTheTrees', 'Treebeard');
+console.log(hm2);
