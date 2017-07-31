@@ -23,7 +23,7 @@ class HashMap {
       let index = i % this._capacity;
       let slot = this._slots[index];
 
-      if (slot === undefined || slot === key && !slot.deleted) {
+      if (slot === undefined || (slot.key === key && !slot.deleted)) {
         return index;
       }
     }
@@ -67,6 +67,17 @@ class HashMap {
     }
   }
 
+  remove(key) {
+    const index = this._findSlot(key);
+    const slot = this._slots[index];
+    if (slot === undefined) {
+      throw new Error('no key');
+    }
+    slot.deleted = true;
+    this.length--;
+    this._deleted++;
+  }
+
 }
 
 HashMap.MAX_LOAD_RATIO = 0.9;
@@ -85,4 +96,7 @@ hm2.set('RingBearer', 'Gollum');
 hm2.set('LadyOfLight', 'Galadriel');
 hm2.set('HalfElven', 'Arwen');
 hm2.set('ShepherdOfTheTrees', 'Treebeard');
-console.log(hm2);
+console.log('before', hm2);
+
+hm2.get('Hobbit');
+//console.log('after', hm2);
