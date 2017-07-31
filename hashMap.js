@@ -1,3 +1,4 @@
+'use strict';
 class HashMap {
   constructor(initialCapacity = 8) {
     this.length = 0;
@@ -43,6 +44,7 @@ class HashMap {
       this._resize(this._capacity * HashMap.SIZE_RATIO);
     }
     const index = this._findSlot(key);
+
     this._slots[index] = {
       key,
       value,
@@ -83,20 +85,66 @@ class HashMap {
 HashMap.MAX_LOAD_RATIO = 0.9;
 HashMap.SIZE_RATIO = 3;
 
-const hm2 = new HashMap;
+// const hm2 = new HashMap;
 
-hm2.set('Hobbit', 'Bilbo');
-hm2.set('Hobbit', 'Frodo');
-hm2.set('Wizard', 'Gandolf');
-hm2.set('Human', 'Aragon');
-hm2.set('Elf', 'Legolas');
-hm2.set('Maiar', 'The Necromancer');
-hm2.set('Maiar', 'Sauron');
-hm2.set('RingBearer', 'Gollum');
-hm2.set('LadyOfLight', 'Galadriel');
-hm2.set('HalfElven', 'Arwen');
-hm2.set('ShepherdOfTheTrees', 'Treebeard');
-console.log('before', hm2);
+// hm2.set('Hobbit', 'Bilbo');
+// hm2.set('Hobbit', 'Frodo');
+// hm2.set('Wizard', 'Gandolf');
+// hm2.set('Human', 'Aragon');
+// hm2.set('Elf', 'Legolas');
+// hm2.set('Maiar', 'The Necromancer');
+// hm2.set('Maiar', 'Sauron');
+// hm2.set('RingBearer', 'Gollum');
+// hm2.set('LadyOfLight', 'Galadriel');
+// hm2.set('HalfElven', 'Arwen');
+// hm2.set('ShepherdOfTheTrees', 'Treebeard');
+// console.log('before', hm2);
+//
+// hm2.get('Hobbit');
+// hm2.remove('Elf');
+// console.log('after', hm2);
 
-hm2.get('Hobbit');
-//console.log('after', hm2);
+////////////////////Exercisies///////////////
+function isPalindrome(string) {
+
+  //divide count
+  //rule out more than 1 odd
+
+  let stringSplit = string.split('');
+  const letters = [];
+  stringSplit.forEach(function(l) {
+    let count = 0;
+    for (let i = 0; i < stringSplit.length; i++) {
+      if (l === stringSplit[i]) {
+        count += 1;
+      }
+      letters[l] = count;
+    }
+  });
+
+  let count2 = 0;
+  console.log(letters['h']);
+  for (let j of Object.keys(letters)) {
+    console.log(letters[j]);
+    if (letters[j] % 2 !== 0) {
+      count2 += 1;
+    }
+    if (count2 > 1) {
+      return false;
+    }
+  }
+  return true;
+}
+console.log('letter count', isPalindrome('admam'));
+
+
+// function countLetter(string) {
+//   let count = 0;
+//   for (let i = 0; i < string.length; i++) {
+//     if (string.charAt(i) === 'e') {
+//       count++
+//     }
+//   }
+//   return count;
+// }
+// console.log(countLetter('effe'));
